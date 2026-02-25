@@ -1,0 +1,20 @@
+# Render Blueprint: backend API (Express + Neon)
+# Repo: TrinidadLozano/demo-bolt-a-deploy
+# Conectar el repo en Render y desplegar; luego añadir env vars en el dashboard.
+
+services:
+  - type: web
+    name: demo-bolt-backend
+    runtime: node
+    rootDir: backend
+
+    buildCommand: npm install
+    startCommand: npm start
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
