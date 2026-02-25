@@ -2,9 +2,9 @@
 
 Repo: **https://github.com/TrinidadLozano/demo-bolt-a-deploy**
 
-En este repo la **raíz** contiene la carpeta `demo-bolt-a-deploy/`. Dentro:
-- **Frontend (Vite/React):** raíz de `demo-bolt-a-deploy/` (index.html, src/, package.json).
-- **Backend (Express):** `demo-bolt-a-deploy/backend/`.
+Todo está en la **raíz** del repo:
+- **Frontend (Vite/React):** raíz (index.html, src/, package.json).
+- **Backend (Express):** carpeta `backend/`.
 
 ---
 
@@ -13,8 +13,8 @@ En este repo la **raíz** contiene la carpeta `demo-bolt-a-deploy/`. Dentro:
 1. Entra en **railway.app** e inicia sesión (con GitHub si quieres).
 2. **New Project** → **Deploy from GitHub repo** → elige **TrinidadLozano/demo-bolt-a-deploy**.
 3. Configura el servicio:
-   - **Root Directory:** `demo-bolt-a-deploy/backend`
-   - **Build Command:** `npm install` (o déjalo vacío; no hay build).
+   - **Root Directory:** `backend`
+   - **Build Command:** `npm install` (o déjalo vacío).
    - **Start Command:** `npm start`
 4. **Variables** (pestaña Variables):
    - `DATABASE_URL` = la connection string de **Neon** (la misma que en `backend/.env` en local).
@@ -26,13 +26,14 @@ En este repo la **raíz** contiene la carpeta `demo-bolt-a-deploy/`. Dentro:
 
 ## 2. Frontend en Vercel
 
-En la **raíz del repo** hay un **`vercel.json`** que obliga a Vercel a hacer el build desde `demo-bolt-a-deploy` y a usar `demo-bolt-a-deploy/dist` como salida. **No hace falta configurar Root Directory** en la UI.
+El frontend está en la **raíz** del repo. No hace falta tocar Root Directory.
 
 1. Entra en **vercel.com** e inicia sesión (con GitHub).
 2. **Add New** → **Project** → importa **TrinidadLozano/demo-bolt-a-deploy**.
 3. Configura:
-   - **Root Directory:** déjalo **vacío** (raíz del repo). El `vercel.json` del repo ya define el build correcto.
-   - **Build Command** y **Output Directory:** no los cambies; los toma del `vercel.json`.
+   - **Root Directory:** déjalo **vacío** (raíz del repo).
+   - **Build Command:** `npm run build` (por defecto con Vite).
+   - **Output Directory:** `dist`
 4. **Environment Variables:**
    - `VITE_API_URL` = **URL del backend en Railway** (ej. `https://xxx.up.railway.app`). Sin barra final.
 5. **Deploy.** Cuando termine, copia la URL del proyecto (ej. `https://demo-bolt-a-deploy-xxx.vercel.app`).
