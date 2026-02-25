@@ -26,13 +26,13 @@ En este repo la **raíz** contiene la carpeta `demo-bolt-a-deploy/`. Dentro:
 
 ## 2. Frontend en Vercel
 
+En la **raíz del repo** hay un **`vercel.json`** que obliga a Vercel a hacer el build desde `demo-bolt-a-deploy` y a usar `demo-bolt-a-deploy/dist` como salida. **No hace falta configurar Root Directory** en la UI.
+
 1. Entra en **vercel.com** e inicia sesión (con GitHub).
 2. **Add New** → **Project** → importa **TrinidadLozano/demo-bolt-a-deploy**.
 3. Configura:
-   - **Root Directory:** `demo-bolt-a-deploy` (no `demo-bolt-a-deploy/backend`).
-   - **Framework Preset:** Vite (o déjalo en Auto).
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
+   - **Root Directory:** déjalo **vacío** (raíz del repo). El `vercel.json` del repo ya define el build correcto.
+   - **Build Command** y **Output Directory:** no los cambies; los toma del `vercel.json`.
 4. **Environment Variables:**
    - `VITE_API_URL` = **URL del backend en Railway** (ej. `https://xxx.up.railway.app`). Sin barra final.
 5. **Deploy.** Cuando termine, copia la URL del proyecto (ej. `https://demo-bolt-a-deploy-xxx.vercel.app`).

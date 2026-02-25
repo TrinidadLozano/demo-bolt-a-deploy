@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd demo-bolt-a-deploy && npm install && npm run build",
+  "outputDirectory": "demo-bolt-a-deploy/dist",
+  "installCommand": "cd demo-bolt-a-deploy && npm install"
+}
