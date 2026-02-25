@@ -1,0 +1,12 @@
+---
+description: Reglas para transición de proyectos exportados desde Bolt a producción.
+globs: ["**/*"]
+---
+
+# Transición Bolt → Producción
+
+- Usar siempre variables de entorno para `DATABASE_URL`, `VITE_API_URL`, `FRONTEND_URL`. Nunca hardcodear URLs ni credenciales en el código.
+- Mantener estructura clara: carpeta `frontend/` (React/Vite) y carpeta `backend/` (Node/Express) separadas.
+- Todo secreto o URL sensible debe estar en `.env`; `.env` debe estar en `.gitignore`. Incluir `.env.example` con las claves sin valores.
+- CORS en el backend debe usar `origin: process.env.FRONTEND_URL` (o equivalente).
+- Las llamadas a la API desde el frontend deben usar `import.meta.env.VITE_API_URL` (o la variable configurada en el proyecto).
