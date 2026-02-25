@@ -1,0 +1,9 @@
+{
+  "name": "demo-bolt-a-deploy-root",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Root para que Vercel ejecute el build del frontend en demo-bolt-a-deploy",
+  "scripts": {
+    "build": "cd demo-bolt-a-deploy && npm run build"
+  }
+}
